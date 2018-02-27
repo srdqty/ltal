@@ -1,0 +1,9 @@
+let fun fib0 (x:int*(int*int)) : int =
+  let val y = fst x 
+	val n = fst(snd x) 
+	val m = snd(snd x) in
+  if y = 0 then n else fib0(y-1, (n+m, n))
+  end
+  fun fib (x:int):int = fib0 (x,(1,0))
+in fib 10
+end

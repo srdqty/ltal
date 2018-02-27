@@ -1,0 +1,14 @@
+let fun fold (g:int->int->int) (x:int list) (b:int) : int =
+      case x of
+        [] => b
+      | h::t => g (h, (fold g t b))
+      end
+  fun tabulate (g:int -> int) (x:int) : int list =
+    let fun dotab (y:int) : int list = 
+	if x = y then [] else (g y)::(dotab (y + 1))
+    in dotab 0 end
+  fun plus (x:int)(y:int) :int = x+y
+  fun id (x:int) :int = x
+in
+ (fold plus  (tabulate id 100) 0)
+end

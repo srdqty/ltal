@@ -1,0 +1,14 @@
+let fun tabulate (g:int -> int) (x:int) : int list =
+    let fun dotab (y:int) : int list = 
+	if x = y then [] else (g y)::(dotab (y + 1))
+    in dotab 0 end
+  fun rev0(l:int list) (m: int list): int list =
+    case m of 
+      []   => l
+    | h::t => rev0 (h::l) t
+  fun rev (l:int list) : int list = rev0 [] l
+  fun id (x:int):int = x
+in
+ rev (tabulate id 100)
+end
+

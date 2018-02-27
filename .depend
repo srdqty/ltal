@@ -1,0 +1,89 @@
+toplevel.cmo: absyn.cmi codegen.cmi ctx.cmi eval.cmi il.cmi lexer.cmo \
+    lift.cmi ltal.cmi optimize.cmi parser.cmi tcabsyn.cmi tcil.cmi tcltal.cmi \
+    translate.cmi util.cmi var.cmi 
+toplevel.cmx: absyn.cmx codegen.cmx ctx.cmx eval.cmx il.cmx lexer.cmx \
+    lift.cmx ltal.cmx optimize.cmx parser.cmx tcabsyn.cmx tcil.cmx tcltal.cmx \
+    translate.cmx util.cmx var.cmx 
+stacktoplevel.cmo: absyn.cmi ctx.cmi eval.cmi il.cmi lexer.cmo lift.cmi \
+    ltal.cmi optimize.cmi parser.cmi stackcodegen.cmi tcabsyn.cmi tcil.cmi \
+    tcltal.cmi translate.cmi util.cmi var.cmi 
+stacktoplevel.cmx: absyn.cmx ctx.cmx eval.cmx il.cmx lexer.cmx lift.cmx \
+    ltal.cmx optimize.cmx parser.cmx stackcodegen.cmx tcabsyn.cmx tcil.cmx \
+    tcltal.cmx translate.cmx util.cmx var.cmx 
+util.cmi: ctx.cmi var.cmi 
+ctx.cmi: var.cmi 
+absyn.cmi: op.cmi var.cmi 
+parser.cmi: absyn.cmi 
+tcabsyn.cmi: absyn.cmi ctx.cmi 
+il.cmi: absyn.cmi ctx.cmi op.cmi 
+ilsubst.cmi: il.cmi 
+tcil.cmi: il.cmi 
+lift.cmi: il.cmi 
+optimize.cmi: il.cmi 
+translate.cmi: absyn.cmi il.cmi tcabsyn.cmi var.cmi 
+lfpl.cmi: op.cmi var.cmi 
+simplify.cmi: lfpl.cmi 
+tclfpl.cmi: ctx.cmi lfpl.cmi 
+lfpl2il.cmi: il.cmi lfpl.cmi tclfpl.cmi 
+ltal.cmi: ctx.cmi op.cmi var.cmi 
+ltalsubst.cmi: ltal.cmi 
+eval.cmi: ltal.cmi 
+tcltal.cmi: ltal.cmi 
+codegen.cmi: ctx.cmi il.cmi ltal.cmi var.cmi 
+stackcodegen.cmi: ctx.cmi il.cmi ltal.cmi var.cmi 
+var.cmo: var.cmi 
+var.cmx: var.cmi 
+op.cmo: op.cmi 
+op.cmx: op.cmi 
+ctx.cmo: var.cmi ctx.cmi 
+ctx.cmx: var.cmx ctx.cmi 
+util.cmo: ctx.cmi var.cmi util.cmi 
+util.cmx: ctx.cmx var.cmx util.cmi 
+absyn.cmo: op.cmi util.cmi var.cmi absyn.cmi 
+absyn.cmx: op.cmx util.cmx var.cmx absyn.cmi 
+parser.cmo: absyn.cmi op.cmi util.cmi parser.cmi 
+parser.cmx: absyn.cmx op.cmx util.cmx parser.cmi 
+lexer.cmo: parser.cmi 
+lexer.cmx: parser.cmx 
+tcabsyn.cmo: absyn.cmi ctx.cmi op.cmi util.cmi var.cmi tcabsyn.cmi 
+tcabsyn.cmx: absyn.cmx ctx.cmx op.cmx util.cmx var.cmx tcabsyn.cmi 
+il.cmo: absyn.cmi ctx.cmi op.cmi util.cmi var.cmi il.cmi 
+il.cmx: absyn.cmx ctx.cmx op.cmx util.cmx var.cmx il.cmi 
+ilsubst.cmo: ctx.cmi il.cmi var.cmi ilsubst.cmi 
+ilsubst.cmx: ctx.cmx il.cmx var.cmx ilsubst.cmi 
+tcil.cmo: ctx.cmi il.cmi ilsubst.cmi op.cmi util.cmi var.cmi tcil.cmi 
+tcil.cmx: ctx.cmx il.cmx ilsubst.cmx op.cmx util.cmx var.cmx tcil.cmi 
+lift.cmo: il.cmi util.cmi var.cmi lift.cmi 
+lift.cmx: il.cmx util.cmx var.cmx lift.cmi 
+optimize.cmo: il.cmi ilsubst.cmi op.cmi var.cmi optimize.cmi 
+optimize.cmx: il.cmx ilsubst.cmx op.cmx var.cmx optimize.cmi 
+translate.cmo: absyn.cmi ctx.cmi il.cmi tcabsyn.cmi util.cmi var.cmi \
+    translate.cmi 
+translate.cmx: absyn.cmx ctx.cmx il.cmx tcabsyn.cmx util.cmx var.cmx \
+    translate.cmi 
+lfpl.cmo: op.cmi util.cmi var.cmi lfpl.cmi 
+lfpl.cmx: op.cmx util.cmx var.cmx lfpl.cmi 
+simplify.cmo: lfpl.cmi var.cmi simplify.cmi 
+simplify.cmx: lfpl.cmx var.cmx simplify.cmi 
+tclfpl.cmo: ctx.cmi lfpl.cmi util.cmi tclfpl.cmi 
+tclfpl.cmx: ctx.cmx lfpl.cmx util.cmx tclfpl.cmi 
+lfpl2il.cmo: ctx.cmi il.cmi ilsubst.cmi lfpl.cmi op.cmi tclfpl.cmi util.cmi \
+    var.cmi lfpl2il.cmi 
+lfpl2il.cmx: ctx.cmx il.cmx ilsubst.cmx lfpl.cmx op.cmx tclfpl.cmx util.cmx \
+    var.cmx lfpl2il.cmi 
+ltal.cmo: ctx.cmi op.cmi var.cmi ltal.cmi 
+ltal.cmx: ctx.cmx op.cmx var.cmx ltal.cmi 
+ltalsubst.cmo: ctx.cmi ltal.cmi var.cmi ltalsubst.cmi 
+ltalsubst.cmx: ctx.cmx ltal.cmx var.cmx ltalsubst.cmi 
+eval.cmo: ctx.cmi ltal.cmi ltalsubst.cmi op.cmi util.cmi var.cmi eval.cmi 
+eval.cmx: ctx.cmx ltal.cmx ltalsubst.cmx op.cmx util.cmx var.cmx eval.cmi 
+tcltal.cmo: ctx.cmi ltal.cmi ltalsubst.cmi op.cmi util.cmi var.cmi tcltal.cmi 
+tcltal.cmx: ctx.cmx ltal.cmx ltalsubst.cmx op.cmx util.cmx var.cmx tcltal.cmi 
+codegen.cmo: ctx.cmi il.cmi ilsubst.cmi ltal.cmi ltalsubst.cmi op.cmi \
+    tcil.cmi tcltal.cmi util.cmi var.cmi codegen.cmi 
+codegen.cmx: ctx.cmx il.cmx ilsubst.cmx ltal.cmx ltalsubst.cmx op.cmx \
+    tcil.cmx tcltal.cmx util.cmx var.cmx codegen.cmi 
+stackcodegen.cmo: ctx.cmi il.cmi ilsubst.cmi ltal.cmi ltalsubst.cmi op.cmi \
+    tcil.cmi tcltal.cmi util.cmi var.cmi stackcodegen.cmi 
+stackcodegen.cmx: ctx.cmx il.cmx ilsubst.cmx ltal.cmx ltalsubst.cmx op.cmx \
+    tcil.cmx tcltal.cmx util.cmx var.cmx stackcodegen.cmi 

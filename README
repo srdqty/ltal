@@ -1,0 +1,14 @@
+LTAL 0.1 README
+
+If you are downloading this as part of a paper review process, please note that I fixed a couple of bugs in the optimizer a day after the paper was submitted, and this resulted in some improvements over the reported experimental results, though not significantly from a qualitative point of view.  
+
+To get started, do: 
+
+make all
+
+./ltalc tests/fact.ltl 1000
+./lstalc tests/fact.ltl 1000
+
+ltalc is the compiler/interpreter for LTAL-without-stacks, and lstalc is the one with stacks.  Both print out a lot of diagnostic information as well as the result of the program once it's done running.  The only metric that's not explicitly reported is maximum required heap size, since that's hard to capture in the current simulator because the initial heap size is fixed and there's no way for the program to request more memory.
+
+The rest of the diagnostics listed in the paper are in the tests/ directory.
